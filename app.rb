@@ -4,9 +4,12 @@ Bundler.require
 class SpaceCats < Sinatra::Application
 
 	get '/'
-		@spacecats = SpaceCat.all
 		erb :index
 	end
+
+	get '/spacecats'
+	  @spacecats = SpaceCat.all
+  end
 
 	get '/:spacecat' do
 		@spacecat = params[:spacecat]
